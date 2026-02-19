@@ -34,12 +34,6 @@ jobs:
 
     - name: Set PYTHONPATH
       run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
-
-    - name: Test with pytest
-      env:
-        PYTHONPATH: ${{ github.workspace }}/src
-      run: |
-        pytest --cov=src --cov-fail-under=100
       
     - name: Run tests
       run: PYTHONPATH=$(pwd) pytest --cov=src --cov-fail-under=100
